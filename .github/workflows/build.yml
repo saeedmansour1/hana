@@ -2,28 +2,31 @@ name: Build Flutter APK
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build-apk:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '3.0.5'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
 
-    - name: Get Dependencies
-      run: flutter pub get
+      - name: Install dependencies
+        run: flutter pub get
 
-    - name: Build Release APK
-      run: flutter build apk --release
+      - name: Build APK
+        run: flutter build apk --release
 
-    - name: Upload APK Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: madar-app-release
-        path: build/app/outputs/flutter-apk/app-release.apk
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: madar-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
