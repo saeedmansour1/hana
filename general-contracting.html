@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقاولات العامة | شركة الهدى للمقاولات</title>
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- lightgallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+    <!-- CSS الرئيسي -->
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #f39c12;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        /* الهيدر الداخلي */
+        .page-header {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .breadcrumb li {
+            margin: 0 10px;
+        }
+        .breadcrumb li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .breadcrumb li:after {
+            content: '/';
+            margin-right: 15px;
+            color: #ccc;
+        }
+        .breadcrumb li:last-child:after {
+            content: '';
+            margin: 0;
+        }
+        /* محتوى الصفحة */
+        .service-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        .service-intro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        .service-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .service-features {
+            margin: 40px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature-card {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .feature-card i {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        /* معرض الأعمال */
+        .gallery-section {
+            margin: 60px 0;
+        }
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .gallery-title h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .gallery-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 250px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        /* CTA */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin: 60px 0;
+        }
+        .cta-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .cta-content p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+        }
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* responsive */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .service-intro {
+                flex-direction: column;
+            }
+            .service-text, .service-image {
+                min-width: 100%;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+  /* responsive */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .service-intro {
+                flex-direction: column;
+            }
+            .service-text, .service-image {
+                min-width: 100%;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ✅ إصلاح عرض الصور داخل lightGallery */
+        .lg-img-wrap,
+        .lg-inner {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            height: 100% !important;
+        }
+
+        .lg-img-wrap img.lg-object {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain !important;
+            margin: auto;
+            display: block;
+        }
+/* إخفاء الصور المصغرة داخل lightGallery */
+.lg-components .lg-thumb-outer {
+    display: none !important;
+}
+
+    </style>
+</head>
+<body>
+    <!-- هيدر الصفحة -->
+    <header class="page-header">
+        <div class="container">
+            <h1>المقاولات العامة</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">خدماتنا</a></li>
+                <li>المقاولات العامة</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- محتوى الصفحة -->
+    <main class="container">
+        <section class="service-content">
+            <div class="service-intro">
+                <div class="service-text">
+                    <h2>المقاولات العامة</h2>
+                    <p>تنفذ شركة الهدى للمقاولات كافة أعمال المقاولات العامة للمباني السكنية والتجارية والصناعية وفق أحدث المواصفات العالمية. نحن نقدم حلولاً متكاملة تشمل جميع مراحل البناء بدءاً من التصميم وحتى التسليم النهائي، مع الالتزام بأعلى معايير الجودة والسلامة.</p>
+                    <p>بخبرة تزيد عن 25 عاماً في مجال الإنشاءات، تمتلك شركتنا القدرة على تنفيذ المشاريع الكبرى بكفاءة عالية، مع الالتزام بمواعيد التسليم المتفق عليها والمحافظة على أعلى معايير الجودة.</p>
+                </div>
+                <div class="service-image">
+                    <img src="m.jpg" alt="المقاولات العامة">
+                </div>
+            </div>
+
+            <div class="service-features">
+                <h3>لماذا تختار شركة الهدى لمقاولاتك العامة؟</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-award"></i>
+                        <h4>خبرة واسعة</h4>
+                        <p>أكثر من 25 عاماً من الخبرة في تنفيذ المشاريع الكبرى بمختلف أنواعها</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h4>فريق محترف</h4>
+                        <p>فريق من المهندسين والفنيين ذوي الكفاءة العالية والخبرة الطويلة</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h4>التزام بالمواعيد</h4>
+                        <p>نلتزم بتسليم المشاريع في المواعيد المتفق عليها دون تأخير</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-medal"></i>
+                        <h4>جودة عالية</h4>
+                        <p>نستخدم أفضل المواد وأحدث التقنيات لضمان جودة التنفيذ</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>السلامة أولاً</h4>
+                        <p>نطبق أعلى معايير السلامة لحماية العاملين والمشروع</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-handshake"></i>
+                        <h4>ضمان يصل إلى 10 سنوات</h4>
+                        <p>نقدم ضماناً ممتداً على أعمالنا يصل إلى 10 سنوات</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-details">
+                <h3>نطاق أعمالنا في المقاولات العامة</h3>
+                <p>تشمل خدماتنا في مجال المقاولات العامة ما يلي:</p>
+                <ul style="margin: 20px 0; padding-right: 20px; line-height: 2;">
+                    <li>إنشاء المباني السكنية (فلل، عمارات، مجمعات سكنية)</li>
+                    <li>إنشاء المباني التجارية (مراكز تسوق، مكاتب، فنادق)</li>
+                    <li>إنشاء المنشآت الصناعية (مصانع، مستودعات، ورش)</li>
+                    <li>أعمال الهدم وإعادة التأهيل</li>
+                    <li>أعمال الترميم والصيانة للمباني القائمة</li>
+                    <li>أعمال البنية التحتية للمشاريع</li>
+                    <li>أعمال التشطيبات الداخلية والخارجية</li>
+                    <li>إدارة المشاريع والتنسيق بين التخصصات</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- معرض أعمالنا -->
+        <section class="gallery-section">
+            <div class="gallery-title">
+                <h2>معرض أعمالنا في المقاولات العامة</h2>
+                <p>بعض المشاريع التي نفخر بتنفيذها</p>
+            </div>
+            <div class="gallery-grid" id="lightgallery">
+                <a href="g/1.jpeg" class="gallery-item">
+                    <img src="g/1.jpeg" alt="مشروع سكني">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/2.jpeg" class="gallery-item">
+                    <img src="g/2.jpeg" alt="مشروع تجاري">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/3.jpeg" class="gallery-item">
+                    <img src="g/3.jpeg" alt="مشروع صناعي">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/4.jpeg" class="gallery-item">
+                    <img src="g/4.jpeg" alt="مشروع سكني">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/5.jpeg" class="gallery-item">
+                    <img src="g/5.jpeg" alt="مشروع تجاري">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/28.jpg" class="gallery-item">
+                    <img src="g/28.jpg" alt="مشروع صناعي">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>هل لديك مشروع مقاولات عامة؟</h2>
+                <p>يسعدنا أن نكون شريكك في تنفيذ مشروعك، تواصل معنا الآن للحصول على استشارة مجانية وتقديم عرض سعر تنافسي.</p>
+                <a href="contact.html" class="cta-btn">اتصل بنا الآن</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+<script>
+    // تعريف الإضافات من مكتبة window
+    const lgZoom = window.lgZoom;
+    const lgThumbnail = window.lgThumbnail;
+
+    // تفعيل معرض الصور
+    document.addEventListener("DOMContentLoaded", function () {
+        lightGallery(document.getElementById('lightgallery'), {
+            selector: '.gallery-item',
+            download: false,
+            counter: false,
+            plugins: [lgZoom, lgThumbnail],
+            zoomFromOrigin: true,
+            mode: 'lg-fade',
+            allowMediaOverlap: false,
+            objectFit: 'contain'
+        });
+    });
+</script>
+</body>
+</html>

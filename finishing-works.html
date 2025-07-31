@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أعمال التشطيبات | شركة هنا العربية للمقاولات</title>
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- lightgallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+    <!-- CSS الرئيسي -->
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #f39c12;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        /* شريط التنقل العلوي */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .contact-info {
+            margin: 5px 0;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+        .contact-info i {
+            margin-left: 5px;
+            color: var(--secondary-color);
+        }
+        .social-icons {
+            margin: 5px 0;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* الهيدر */
+        header {
+            background-color: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            margin-bottom: 10px;
+        }
+        .logo img {
+            height: 60px;
+            transition: all 0.3s;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        /* القائمة */
+        nav {
+            width: 100%;
+            order: 3;
+            margin-top: 15px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 5px;
+        }
+        nav ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 14px;
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 12px;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        nav ul li a:hover:after {
+            width: calc(100% - 24px);
+        }
+        /* هيدر الصفحة */
+        .page-header {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .breadcrumb li {
+            margin: 0 10px;
+        }
+        .breadcrumb li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .breadcrumb li:after {
+            content: '/';
+            margin-right: 15px;
+            color: #ccc;
+        }
+        .breadcrumb li:last-child:after {
+            content: '';
+            margin: 0;
+        }
+        /* محتوى الصفحة */
+        .service-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        .service-intro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        .service-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .service-features {
+            margin: 40px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature-card {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .feature-card i {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        /* معرض الأعمال */
+        .gallery-section {
+            margin: 60px 0;
+        }
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .gallery-title h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .gallery-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 250px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        /* CTA */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin: 60px 0;
+        }
+        .cta-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .cta-content p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+        }
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* الفوتر */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 15px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+            color: var(--secondary-color);
+        }
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0;
+            font-size: 14px;
+        }
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-right: 5px;
+        }
+        .footer-col p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 8px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .footer-social a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+        }
+        /* زر العودة للأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        /* responsive */
+        @media (min-width: 576px) {
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 768px) {
+            .header-container {
+                flex-wrap: nowrap;
+            }
+            .logo {
+                margin-bottom: 0;
+            }
+            nav {
+                width: auto;
+                order: 0;
+                margin-top: 0;
+            }
+            nav ul li a {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (min-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .service-intro {
+                flex-wrap: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+966112345678"><i class="fas fa-phone"></i> +966 11 234 5678</a>
+                <a href="mailto:info@almabani.com"><i class="fas fa-envelope"></i> info@almabani.com</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="logo.png" alt="شركة هنا العربية للمقاولات">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- هيدر الصفحة -->
+    <header class="page-header">
+        <div class="container">
+            <h1>أعمال التشطيبات</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">خدماتنا</a></li>
+                <li>أعمال التشطيبات</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- محتوى الصفحة -->
+    <main class="container">
+        <section class="service-content">
+            <div class="service-intro">
+                <div class="service-text">
+                    <h2>أعمال التشطيبات الداخلية والخارجية</h2>
+                    <p>نقدم في شركة هنا العربية للمقاولات خدمات تشطيب متكاملة للمباني السكنية والتجارية بأعلى معايير الجودة والكفاءة. نستخدم أحدث التقنيات وأجود المواد لضمان نتائج مميزة تدوم طويلاً.</p>
+                    <p>بخبرة تزيد عن 15 عاماً في مجال التشطيبات، نضمن لعملائنا تنفيذًا دقيقًا وفق أحدث التصاميم والمواصفات، مع الالتزام التام بمواعيد التسليم والمحافظة على أعلى معايير الجودة.</p>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="أعمال التشطيبات">
+                </div>
+            </div>
+
+            <div class="service-features">
+                <h3>لماذا تختار شركة هنا العربية لأعمال التشطيبات؟</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-paint-roller"></i>
+                        <h4>تشطيبات داخلية متكاملة</h4>
+                        <p>أعمال الدهان، الأرضيات، الأسقف، والجدران بأحدث التصاميم وأجود المواد</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tile"></i>
+                        <h4>تركيب السيراميك والرخام</h4>
+                        <p>تركيب جميع أنواع السيراميك والرخام والباركيه بدقة عالية</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-door-open"></i>
+                        <h4>أعمال النجارة والأبواب</h4>
+                        <p>تصنيع وتركيب الأبواب الخشبية والألمنيوم والـ PVC</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-window-maximize"></i>
+                        <h4>أعمال الزجاج والألمنيوم</h4>
+                        <p>تركيب النوافذ والواجهات الزجاجية والستائر المعدنية</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bath"></i>
+                        <h4>تشطيبات الحمامات والمطابخ</h4>
+                        <p>تركيب السيراميك والتجهيزات الصحية بأعلى معايير الجودة</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-building"></i>
+                        <h4>تشطيبات الواجهات الخارجية</h4>
+                        <p>أعمال الدهان، الكلادينج، والحجر للواجهات الخارجية</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-details">
+                <h3>نطاق أعمالنا في التشطيبات</h3>
+                <p>تشمل خدماتنا في مجال التشطيبات ما يلي:</p>
+                <ul style="margin: 20px 0; padding-right: 20px; line-height: 2;">
+                    <li>أعمال الدهان الداخلي والخارجي بجميع أنواعه</li>
+                    <li>تركيب السيراميك والرخام والباركيه</li>
+                    <li>أعمال الجبس بورد والديكورات الجبسية</li>
+                    <li>تركيب الأرضيات الخشبية والـ PVC</li>
+                    <li>أعمال النجارة (الأبواب، الشبابيك، المطابخ)</li>
+                    <li>تركيب التجهيزات الصحية (الحنفيات، الأحواض، الخلاطات)</li>
+                    <li>تشطيبات الحمامات والمطابخ</li>
+                    <li>أعمال الواجهات الخارجية (الكلادينج، الحجر، الدهان)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- معرض أعمالنا -->
+        <section class="gallery-section">
+            <div class="gallery-title">
+                <h2>معرض أعمالنا في التشطيبات</h2>
+                <p>بعض مشاريع التشطيبات التي نفخر بتنفيذها</p>
+            </div>
+            <div class="gallery-grid" id="lightgallery">
+                <a href="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="تشطيبات داخلية">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="تشطيبات مطابخ">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="تشطيبات حمامات">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="تشطيبات واجهات">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="https://images.unsplash.com/photo-1600607687939-e75522f58d8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607687939-e75522f58d8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="تشطيبات أرضيات">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="https://images.unsplash.com/photo-1600607688279-ea378b5e326b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607688279-ea378b5e326b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="تشطيبات جبسية">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>هل تحتاج إلى خدمات تشطيبات مميزة؟</h2>
+                <p>يسعدنا أن نكون شريكك في تشطيب مشروعك، تواصل معنا الآن للحصول على استشارة مجانية وتقديم عرض سعر تنافسي.</p>
+                <a href="contact.html" class="cta-btn">اتصل بنا الآن</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>عن الشركة</h3>
+                    <p>شركة هنا العربية للمقاولات هي إحدى الشركات الرائدة في مجال الإنشاءات والمقاولات في المملكة العربية السعودية، تأسست عام 1995م.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="general-contracting.html">المقاولات العامة</a></li>
+                        <li><a href="finishing-works.html">أعمال التشطيبات</a></li>
+                        <li><a href="electrical-works.html">اعمال الكهربائية</a></li>
+                        <li><a href="low-current.html">التيار الخفيف</a></li>
+                        <li><a href="plumbing.html">أعمال الإلكتروميكانيكية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                        <li><i class="fas fa-phone"></i> +966 11 234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@almabani.com</li>
+                        <li><i class="fas fa-clock"></i> الأحد - الخميس: 8 صباحاً - 5 مساءً</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 شركة هنا العربية للمقاولات - جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script>
+        // تفعيل معرض الصور
+        lightGallery(document.getElementById('lightgallery'), {
+            selector: '.gallery-item',
+            download: false,
+            counter: false,
+        });
+
+        // زر العودة للأعلى
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريعنا | هنا العربية للمقاولات</title>
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- CSS الرئيسي -->
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #f39c12;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            color: #333;
+            overflow-x: hidden;
+        }
+        /* شريط التنقل العلوي */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            position: relative;
+            z-index: 100;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .contact-info {
+            margin: 5px 0;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+        .contact-info i {
+            margin-left: 5px;
+            color: var(--secondary-color);
+        }
+        .social-icons {
+            margin: 5px 0;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* الهيدر */
+        header {
+            background-color: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            margin-bottom: 10px;
+        }
+        .logo img {
+            height: 60px;
+            transition: all 0.3s;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        /* القائمة */
+        nav {
+            width: 100%;
+            order: 3;
+            margin-top: 15px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 5px;
+        }
+        nav ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 14px;
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 12px;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        nav ul li a:hover:after {
+            width: calc(100% - 24px);
+        }
+        /* صفحة المشاريع */
+        .projects-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .projects-hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .projects-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+        .breadcrumb li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .breadcrumb li a:hover {
+            color: var(--secondary-color);
+        }
+        .breadcrumb li:after {
+            content: '/';
+            margin-right: 5px;
+            color: #ccc;
+        }
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+        /* محتوى المشاريع */
+        .projects-page {
+            padding: 50px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            padding: 0 15px;
+        }
+        .filter-btn {
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            padding: 6px 12px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        .project-card {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        .project-info {
+            padding: 20px;
+            background-color: white;
+        }
+        .project-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        .project-meta i {
+            color: var(--secondary-color);
+            margin-left: 5px;
+        }
+        .project-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--dark-color);
+            border-radius: 5px;
+            margin: 0 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+            font-weight: 500;
+        }
+        .pagination a.active, .pagination a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        /* تفاصيل المشروع */
+        .project-details {
+            padding: 50px 0;
+        }
+        .project-header {
+            margin-bottom: 30px;
+        }
+        .project-header h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .project-header .project-meta {
+            margin-bottom: 20px;
+        }
+        .project-gallery {
+            margin-bottom: 30px;
+        }
+        .main-image {
+            height: 400px;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        .main-image:hover img {
+            transform: scale(1.05);
+        }
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .thumbnail {
+            height: 80px;
+            overflow: hidden;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        .thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .project-content {
+            margin-bottom: 30px;
+        }
+        .project-content h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .project-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        .project-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .project-features {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .project-features h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .feature-item i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-left: 10px;
+            margin-top: 3px;
+        }
+        .feature-text h4 {
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        .feature-text p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        /* الفوتر */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 15px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+            color: var(--secondary-color);
+        }
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0;
+            font-size: 14px;
+        }
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-right: 5px;
+        }
+        .footer-col p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 8px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .footer-social a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+        }
+        /* زر العودة للأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        /* تحسينات للشاشات المتوسطة والكبيرة */
+        @media (min-width: 576px) {
+            .projects-hero {
+                height: 350px;
+            }
+            .projects-hero h1 {
+                font-size: 2.5rem;
+            }
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 768px) {
+            .header-container {
+                flex-wrap: nowrap;
+            }
+            .logo {
+                margin-bottom: 0;
+            }
+            nav {
+                width: auto;
+                order: 0;
+                margin-top: 0;
+            }
+            nav ul li a {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+            .projects-hero {
+                height: 400px;
+            }
+            .projects-hero h1 {
+                font-size: 3rem;
+            }
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            .project-header h1 {
+                font-size: 2.2rem;
+            }
+            .thumbnails {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .project-content {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 30px;
+            }
+            .project-features {
+                margin-bottom: 0;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+966112345678"><i class="fas fa-phone"></i> +966 11 234 5678</a>
+                <a href="mailto:info@m.com"><i class="fas fa-envelope"></i> info@almabani.com</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="logo.png" alt="شركة هنا العربية للمقاولات">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="En/INDEX.HTML">EN</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- هيدر الصفحة -->
+    <section class="projects-hero">
+        <div class="projects-hero-content">
+            <h1 class="animate__animated animate__fadeInDown">مشاريعنا</h1>
+            <ul class="breadcrumb animate__animated animate__fadeInUp">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li>المشاريع</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- محتوى المشاريع -->
+    <section class="projects-page">
+        <div class="container">
+            <div class="section-title">
+                <h2>أحدث مشاريعنا</h2>
+                <p>استعرض بعضاً من أبرز مشاريعنا التي نفخر بها والتي تعكس مدى احترافيتنا وخبرتنا الطويلة</p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="residential">سكني</button>
+                <button class="filter-btn" data-filter="commercial">تجاري</button>
+                <button class="filter-btn" data-filter="industrial">صناعي</button>
+                <button class="filter-btn" data-filter="government">حكومي</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- مشروع 1 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="residential">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="مجمع السعادة السكني">
+                    </div>
+                    <div class="project-info">
+                        <h3>مجمع السعادة السكني</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> الرياض</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                            <span><i class="fas fa-building"></i> سكني</span>
+                        </div>
+                        <p>مجمع سكني فاخر يتكون من 150 وحدة سكنية بمواصفات عالمية، مع مرافق متكاملة ومساحات خضراء.</p>
+                        <a href="project-details.html" class="btn">تفاصيل المشروع</a>
+                    </div>
+                </div>
+                
+                <!-- مشروع 2 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="commercial">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="برج الأعمال العالمي">
+                    </div>
+                    <div class="project-info">
+                        <h3>برج الأعمال العالمي</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> جدة</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                            <span><i class="fas fa-briefcase"></i> تجاري</span>
+                        </div>
+                        <p>برج تجاري متكامل بارتفاع 35 طابقاً، يضم مكاتب فاخرة وقاعات مؤتمرات ومراكز تجارية.</p>
+                        <a href="project-details.html" class="btn">تفاصيل المشروع</a>
+                    </div>
+                </div>
+                
+                <!-- مشروع 3 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="industrial">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="المصنع المتكامل">
+                    </div>
+                    <div class="project-info">
+                        <h3>المصنع المتكامل</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> الدمام</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2021</span>
+                            <span><i class="fas fa-industry"></i> صناعي</span>
+                        </div>
+                        <p>مصنع متكامل بمساحة 20,000 متر مربع، مجهز بأحدث التقنيات والأنظمة الصناعية.</p>
+                        <a href="project-details.html" class="btn">تفاصيل المشروع</a>
+                    </div>
+                </div>
+                
+                <!-- مشروع 4 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="residential">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="فلل النخبة">
+                    </div>
+                    <div class="project-info">
+                        <h3>فلل النخبة</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> الخبر</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2020</span>
+                            <span><i class="fas fa-home"></i> سكني</span>
+                        </div>
+                        <p>مجمع فلل فاخرة يتكون من 50 فيلا بمساحات مختلفة وتصاميم معمارية مميزة.</p>
+                        <a href="project-details.html" class="btn">تفاصيل المشروع</a>
+                    </div>
+                </div>
+                
+                <!-- مشروع 5 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="commercial">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="مجمع التجارة العالمي">
+                    </div>
+                    <div class="project-info">
+                        <h3>مجمع التجارة العالمي</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> الرياض</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2019</span>
+                            <span><i class="fas fa-shopping-cart"></i> تجاري</span>
+                        </div>
+                        <p>مجمع تجاري ضخم يضم 120 محل تجاري ومطاعم ومراكز ترفيهية ومواقف متعددة الطوابق.</p>
+                        <a href="project-details.html" class="btn">تفاصيل المشروع</a>
+                    </div>
+                </div>
+                
+                <!-- مشروع 6 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="government">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="المستشفى التخصصي">
+                    </div>
+                    <div class="project-info">
+                        <h3>المستشفى التخصصي</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> المدينة المنورة</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2018</span>
+                            <span><i class="fas fa-hospital"></i> حكومي</span>
+                        </div>
+                        <p>مستشفى تخصصي بسعة 200 سرير، مجهز بأحدث الأجهزة الطبية وتقنيات الرعاية الصحية.</p>
+                        <a href="project-details.html" class="btn">تفاصيل المشروع</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>عن الشركة</h3>
+                    <p>شركة هنا العربية للمقاولات العامة هي إحدى الشركات الرائدة في مجال الإنشاءات والمقاولات في المملكة العربية السعودية، تأسست عام 1995م.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="general-contracting.html">المقاولات العامة</a></li>
+                        <li><a href="finishing-works.html">أعمال التشطيبات</a></li>
+                        <li><a href="electrical-works.html">اعمال الكهربائية</a></li>
+                        <li><a href="low-current.html">التيار الخفيف</a></li>
+                        <li><a href="plumbing.html">أعمال الإلكتروميكانيكية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>النشرة البريدية</h3>
+                    <p>اشترك في نشرتنا البريدية لتصلك آخر أخبارنا وعروضنا.</p>
+                    <form>
+                        <input type="email" placeholder="بريدك الإلكتروني">
+                        <button type="submit">اشتراك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 شركة هنا العربية للمقاولات العامة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // تفعيل wow.js للحركات
+        new WOW().init();
+        
+        // زر العودة للأعلى
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // فلترة المشاريع
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // إزالة التنشيط من جميع الأزرار
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // تنشيط الزر المحدد
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.classList.add('animate__fadeIn');
+                        }, 50);
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('animate__fadeIn');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
