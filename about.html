@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن الشركة | هنا العربية للمقاولات</title>
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- CSS الرئيسي -->
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #f39c12;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            color: #333;
+            overflow-x: hidden;
+        }
+        /* شريط التنقل العلوي */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            position: relative;
+            z-index: 100;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .contact-info {
+            margin: 5px 0;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+        .contact-info i {
+            margin-left: 5px;
+            color: var(--secondary-color);
+        }
+        .social-icons {
+            margin: 5px 0;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* الهيدر */
+        header {
+            background-color: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            margin-bottom: 10px;
+        }
+        .logo img {
+            height: 60px;
+            transition: all 0.3s;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        /* القائمة */
+        nav {
+            width: 100%;
+            order: 3;
+            margin-top: 15px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 5px;
+        }
+        nav ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 14px;
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 12px;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        nav ul li a:hover:after {
+            width: calc(100% - 24px);
+        }
+        /* صفحة عن الشركة */
+        .page-header {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .page-header .container {
+            width: 100%;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .page-header h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+        .breadcrumb li a {
+            color: white;
+            text-decoration: none;
+        }
+        .breadcrumb li:after {
+            content: '/';
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        .breadcrumb li:last-child:after {
+            content: '';
+            margin: 0;
+        }
+        /* محتوى الصفحة */
+        .about-section {
+            padding: 50px 0;
+            background-color: white;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        .section-title p {
+            color: #666;
+            margin: 15px auto 0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 0 15px;
+        }
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .about-img {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 300px;
+        }
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .mission-vision {
+            padding: 50px 0;
+            background-color: var(--light-color);
+        }
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 0 15px;
+        }
+        .mv-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .mv-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .mv-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .mv-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        .values {
+            padding: 50px 0;
+            background-color: white;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        .value-card {
+            display: flex;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .value-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        .value-card:hover .value-icon {
+            background-color: var(--secondary-color);
+        }
+        .value-content {
+            padding: 20px;
+            flex: 1;
+        }
+        .value-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .value-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        /* الفريق */
+        .team {
+            padding: 50px 0;
+            background-color: var(--light-color);
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        .team-member {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .member-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        .team-member:hover .member-img img {
+            transform: scale(1.1);
+        }
+        .member-info {
+            padding: 15px;
+        }
+        .member-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        .member-info p {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .member-social {
+            display: flex;
+            justify-content: center;
+        }
+        .member-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin: 0 3px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .member-social a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* الإحصاءات */
+        .stats {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 0;
+            color: white;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        .stat-item {
+            padding: 20px 0;
+        }
+        .stat-item i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        .stat-item .number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-item p {
+            font-size: 14px;
+        }
+        /* الفوتر */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 15px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+            color: var(--secondary-color);
+        }
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0;
+            font-size: 14px;
+        }
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-right: 5px;
+        }
+        .footer-col p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 8px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .footer-social a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+        }
+        /* زر العودة للأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        /* الأزرار */
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+            font-size: 14px;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            color: var(--primary-color);
+        }
+        /* تحسينات للشاشات المتوسطة والكبيرة */
+        @media (min-width: 576px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            .mv-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @media (min-width: 768px) {
+            .header-container {
+                flex-wrap: nowrap;
+            }
+            .logo {
+                margin-bottom: 0;
+            }
+            nav {
+                width: auto;
+                order: 0;
+                margin-top: 0;
+            }
+            nav ul li a {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 992px) {
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+966112345678"><i class="fas fa-phone"></i> +966 11 234 5678</a>
+                <a href="mailto:info@almabani.com"><i class="fas fa-envelope"></i> info@m.com</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="logo.png" alt="شركة هنا العربية للمقاولات">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html" class="active">عن الشركة</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="en/index.html">EN</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- رأس الصفحة -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">عن الشركة</h1>
+            <ul class="breadcrumb animate__animated animate__fadeInUp">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li>عن الشركة</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- عن الشركة -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>من نحن</h2>
+                <p>شركة رائدة في مجال المقاولات العامة والإنشاءات بالمملكة العربية السعودية</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text animate__animated animate__fadeInLeft">
+                    <h3>شركة هنا العربية للمقاولات العامة</h3>
+                    <p>تأسست شركة هنا العربية للمقاولات العامة في عام 1995م، وتعد واحدة من أبرز الشركات الرائدة في مجال الإنشاءات والمقاولات في المملكة العربية السعودية. على مدار أكثر من 25 عاماً، كنا شريكاً موثوقاً به في تنفيذ العديد من المشاريع الكبرى في مختلف أنحاء المملكة.</p>
+                    <p>نحن نقدم حلولاً متكاملة في مجال البناء والتشييد، بدءاً من التصميم والاستشارات الهندسية، وصولاً إلى التنفيذ والتسليم النهائي للمشروع، مع الالتزام بأعلى معايير الجودة والسلامة والكفاءة المهنية.</p>
+                    <p>تمتلك شركة هنا العربية فريقاً من المهندسين والخبراء ذوي الكفاءة العالية، بالإضافة إلى أحدث المعدات والتقنيات في مجال الإنشاءات، مما يمكننا من تنفيذ المشاريع بكفاءة وجودة عالية، والتزاماً تاماً بمواعيد التسليم المتفق عليها.</p>
+                    <a href="projects.html" class="btn btn-primary">تصفح مشاريعنا</a>
+                </div>
+                <div class="about-img animate__animated animate__fadeInRight">
+                    <img src="aboutus.webp" alt="عن الشركة">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الرؤية والرسالة -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="section-title">
+                <h2>رؤيتنا ورسالتنا</h2>
+                <p>الأهداف والمبادئ التي نلتزم بها لتحقيق التميز في مجال المقاولات</p>
+            </div>
+            <div class="mv-grid">
+                <div class="mv-card animate__animated animate__fadeInUp">
+                    <i class="fas fa-eye"></i>
+                    <h3>رؤيتنا</h3>
+                    <p>أن نكون الشركة الرائدة في مجال المقاولات العامة والإنشاءات في المملكة العربية السعودية والمنطقة، من خلال تقديم حلول مبتكرة وعالية الجودة تلبي تطلعات عملائنا وتساهم في تنمية المجتمع.</p>
+                </div>
+                <div class="mv-card animate__animated animate__fadeInUp">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>رسالتنا</h3>
+                    <p>توفير حلول متكاملة في مجال الإنشاءات والمقاولات العامة، مع التركيز على الجودة والكفاءة والابتكار، والالتزام بأعلى معايير السلامة والمسؤولية الاجتماعية، لتحقيق رضا العملاء والإسهام في التنمية العمرانية والاقتصادية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قيمنا -->
+    <section class="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>قيمنا</h2>
+                <p>المبادئ الأساسية التي تحكم عملنا وعلاقاتنا مع العملاء والشركاء</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card animate__animated animate__fadeIn">
+                    <div class="value-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>الجودة</h3>
+                        <p>نلتزم بأعلى معايير الجودة في جميع مشاريعنا وخدماتنا، مع استخدام أفضل المواد وأحدث التقنيات لضمان متانة وديمومة المنشآت.</p>
+                    </div>
+                </div>
+                <div class="value-card animate__animated animate__fadeIn">
+                    <div class="value-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>الالتزام بالمواعيد</h3>
+                        <p>نحرص على الالتزام بمواعيد تسليم المشاريع كما هو مخطط لها، مع الحفاظ على أعلى معايير الجودة والسلامة.</p>
+                    </div>
+                </div>
+                <div class="value-card animate__animated animate__fadeIn">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>الابتكار</h3>
+                        <p>نسعى دائماً لتبني أحدث التقنيات والابتكارات في مجال الإنشاءات، لضمان تقديم حلول متطورة تلبي احتياجات العملاء.</p>
+                    </div>
+                </div>
+                <div class="value-card animate__animated animate__fadeIn">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>النزاهة</h3>
+                        <p>نعتمد الشفافية والنزاهة في جميع تعاملاتنا مع العملاء والشركاء، مع الحفاظ على السرية التامة لمعلومات المشاريع.</p>
+                    </div>
+                </div>
+                <div class="value-card animate__animated animate__fadeIn">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>العمل الجماعي</h3>
+                        <p>نؤمن بأهمية العمل الجماعي والتعاون بين جميع أفراد الفريق لتحقيق أفضل النتائج وإنجاز المشاريع بنجاح.</p>
+                    </div>
+                </div>
+                <div class="value-card animate__animated animate__fadeIn">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>السلامة</h3>
+                        <p>نولي السلامة أولوية قصوى في جميع مواقع عملنا، مع تطبيق أقسى معايير السلامة لحماية العمال والممتلكات.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الإحصاءات -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>أرقامنا</h2>
+                <p>إنجازاتنا وأرقامنا التي نفتخر بها</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item animate__animated animate__fadeIn">
+                    <i class="fas fa-project-diagram"></i>
+                    <div class="number" data-count="250">0</div>
+                    <p>مشروع مكتمل</p>
+                </div>
+                <div class="stat-item animate__animated animate__fadeIn">
+                    <i class="fas fa-users"></i>
+                    <div class="number" data-count="120">0</div>
+                    <p>عميل راضٍ</p>
+                </div>
+                <div class="stat-item animate__animated animate__fadeIn">
+                    <i class="fas fa-hard-hat"></i>
+                    <div class="number" data-count="350">0</div>
+                    <p>فريق عمل</p>
+                </div>
+                <div class="stat-item animate__animated animate__fadeIn">
+                    <i class="fas fa-award"></i>
+                    <div class="number" data-count="28">0</div>
+                    <p>جائزة وتكريم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفريق -->
+    <section class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>فريق القيادة</h2>
+                <p>خبراؤنا ومهندسونا هم سر تميزنا ونجاحنا في تنفيذ المشاريع بأعلى معايير الجودة</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member animate__animated animate__fadeIn">
+                    <div class="member-img">
+                        <img src="magdy.png" alt="عضو الفريق">
+                    </div>
+                    <div class="member-info">
+                        <h3>المهندس مجدى عوض</h3>
+                        <p>المدير التنفيذي</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member animate__animated animate__fadeIn">
+                    <div class="member-img">
+                        <img src="magdy.png" alt="عضو الفريق">
+                    </div>
+                    <div class="member-info">
+                        <h3>المهندس مجدى عوض</h3>
+                        <p>رئيس قسم الإنشاءات</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member animate__animated animate__fadeIn">
+                    <div class="member-img">
+                        <img src="magdy.png" alt="عضو الفريق">
+                    </div>
+                    <div class="member-info">
+                        <h3>المهندس مجدى عوض</h3>
+                        <p>رئيس قسم التصميم</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member animate__animated animate__fadeIn">
+                    <div class="member-img">
+                        <img src="magdy.png" alt="عضو الفريق">
+                    </div>
+                    <div class="member-info">
+                        <h3>المهندس مجدى عوض</h3>
+                        <p>رئيس قسم الجودة</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>عن الشركة</h3>
+                    <p>شركة هنا العربية للمقاولات العامة هي إحدى الشركات الرائدة في مجال الإنشاءات والمقاولات في المملكة العربية السعودية، تأسست عام 1995م.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">عن الشركة</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="general-contracting.html">المقاولات العامة</a></li>
+                        <li><a href="low-current.html">التيار الخفيف</a></li>
+                        <li><a href="finishing-works.html">التشطيبات الداخلية</a></li>
+                        <li><a href="electrical-works.html">اعمال الكهربائية</a></li>
+                        <li><a href="plumbing.html">أعمال الإلكتروميكانيكية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>النشرة البريدية</h3>
+                    <p>اشترك في نشرتنا البريدية لتصلك آخر أخبارنا وعروضنا.</p>
+                    <form>
+                        <input type="email" placeholder="بريدك الإلكتروني">
+                        <button type="submit">اشتراك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 شركة هنا العربية للمقاولات العامة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // تفعيل wow.js للحركات
+        new WOW().init();
+        
+        // زر العودة للأعلى
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // تأثير الأرقام المتزايدة
+        const statNumbers = document.querySelectorAll('.number');
+        const statsSection = document.querySelector('.stats');
+        let numbersAnimated = false;
+        
+        function animateNumbers() {
+            if (numbersAnimated) return;
+            numbersAnimated = true;
+            
+            statNumbers.forEach(number => {
+                const target = +number.getAttribute('data-count');
+                const count = +number.innerText;
+                const increment = target / 100;
+                
+                if (count < target) {
+                    number.innerText = Math.ceil(count + increment);
+                    setTimeout(animateNumbers, 20);
+                } else {
+                    number.innerText = target;
+                }
+            });
+        }
+        
+        // تشغيل التأثير عند الوصول للقسم
+        window.addEventListener('scroll', () => {
+            const sectionPos = statsSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.3;
+            
+            if (sectionPos < screenPos) {
+                animateNumbers();
+            }
+        });
+    </script>
+</body>
+</html>
