@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Contracting | Hana AlArabia Contracting Company</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- lightgallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+    <!-- Main CSS -->
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #f39c12;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        /* Page Header */
+        .page-header {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .breadcrumb li {
+            margin: 0 10px;
+        }
+        .breadcrumb li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .breadcrumb li:after {
+            content: '/';
+            margin-left: 15px;
+            color: #ccc;
+        }
+        .breadcrumb li:last-child:after {
+            content: '';
+            margin: 0;
+        }
+        /* Page Content */
+        .service-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        .service-intro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        .service-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .service-features {
+            margin: 40px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature-card {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .feature-card i {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        /* Gallery */
+        .gallery-section {
+            margin: 60px 0;
+        }
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .gallery-title h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .gallery-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 250px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        /* CTA */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin: 60px 0;
+        }
+        .cta-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .cta-content p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+        }
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* responsive */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .service-intro {
+                flex-direction: column;
+            }
+            .service-text, .service-image {
+                min-width: 100%;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Fix for lightGallery image display */
+        .lg-img-wrap,
+        .lg-inner {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            height: 100% !important;
+        }
+        .lg-img-wrap img.lg-object {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain !important;
+            margin: auto;
+            display: block;
+        }
+        /* Hide thumbnails in lightGallery */
+        .lg-components .lg-thumb-outer {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>General Contracting</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li>General Contracting</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="container">
+        <section class="service-content">
+            <div class="service-intro">
+                <div class="service-text">
+                    <h2>General Contracting</h2>
+                    <p>Here Arabia Contracting Company executes all general contracting works for residential, commercial, and industrial buildings according to the latest international specifications. We provide integrated solutions covering all construction phases from design to final handover, while adhering to the highest quality and safety standards.</p>
+                    <p>With over 25 years of experience in construction, our company has the capability to efficiently execute major projects while adhering to agreed delivery schedules and maintaining the highest quality standards.</p>
+                </div>
+                <div class="service-image">
+                    <img src="m.jpg" alt="General Contracting">
+                </div>
+            </div>
+
+            <div class="service-features">
+                <h3>Why Choose Here Arabia for Your General Contracting Needs?</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-award"></i>
+                        <h4>Extensive Experience</h4>
+                        <p>Over 25 years of experience in executing major projects of various types</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Professional Team</h4>
+                        <p>A team of highly competent engineers and technicians with extensive experience</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h4>Commitment to Deadlines</h4>
+                        <p>We commit to delivering projects on the agreed schedules without delay</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-medal"></i>
+                        <h4>High Quality</h4>
+                        <p>We use the best materials and latest technologies to ensure quality execution</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Safety First</h4>
+                        <p>We apply the highest safety standards to protect workers and the project</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Up to 10-Year Warranty</h4>
+                        <p>We offer extended warranties on our work for up to 10 years</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-details">
+                <h3>Our Scope of General Contracting Works</h3>
+                <p>Our general contracting services include:</p>
+                <ul style="margin: 20px 0; padding-left: 20px; line-height: 2;">
+                    <li>Construction of residential buildings (villas, apartment buildings, residential complexes)</li>
+                    <li>Construction of commercial buildings (shopping centers, offices, hotels)</li>
+                    <li>Construction of industrial facilities (factories, warehouses, workshops)</li>
+                    <li>Demolition and rehabilitation works</li>
+                    <li>Restoration and maintenance works for existing buildings</li>
+                    <li>Infrastructure works for projects</li>
+                    <li>Interior and exterior finishing works</li>
+                    <li>Project management and coordination between disciplines</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Our Works Gallery -->
+        <section class="gallery-section">
+            <div class="gallery-title">
+                <h2>Our General Contracting Projects Gallery</h2>
+                <p>Some projects we're proud to have executed</p>
+            </div>
+            <div class="gallery-grid" id="lightgallery">
+                <a href="g/1.jpeg" class="gallery-item">
+                    <img src="g/1.jpeg" alt="Residential Project">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/2.jpeg" class="gallery-item">
+                    <img src="g/2.jpeg" alt="Commercial Project">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/3.jpeg" class="gallery-item">
+                    <img src="g/3.jpeg" alt="Industrial Project">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/4.jpeg" class="gallery-item">
+                    <img src="g/4.jpeg" alt="Residential Project">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/5.jpeg" class="gallery-item">
+                    <img src="g/5.jpeg" alt="Commercial Project">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+                <a href="g/28.jpg" class="gallery-item">
+                    <img src="g/28.jpg" alt="Industrial Project">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Do You Have a General Contracting Project?</h2>
+                <p>We'd be delighted to be your partner in executing your project. Contact us now for a free consultation and a competitive quote.</p>
+                <a href="contact.html" class="cta-btn">Contact Us Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    <script>
+        // Define plugins from window library
+        const lgZoom = window.lgZoom;
+        const lgThumbnail = window.lgThumbnail;
+
+        // Activate Gallery
+        document.addEventListener("DOMContentLoaded", function () {
+            lightGallery(document.getElementById('lightgallery'), {
+                selector: '.gallery-item',
+                download: false,
+                counter: false,
+                plugins: [lgZoom, lgThumbnail],
+                zoomFromOrigin: true,
+                mode: 'lg-fade',
+                allowMediaOverlap: false,
+                objectFit: 'contain'
+            });
+        });
+    </script>
+</body>
+</html>

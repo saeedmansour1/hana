@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Hana AlArabia Contracting</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Main CSS -->
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #f39c12;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            color: #333;
+            overflow-x: hidden;
+        }
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            position: relative;
+            z-index: 100;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .contact-info {
+            margin: 5px 0;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+        .contact-info i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+        .social-icons {
+            margin: 5px 0;
+        }
+        .social-icons a {
+            color: white;
+            margin-left: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* Header */
+        header {
+            background-color: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            margin-bottom: 10px;
+        }
+        .logo img {
+            height: 60px;
+            transition: all 0.3s;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        /* Navigation */
+        nav {
+            width: 100%;
+            order: 3;
+            margin-top: 15px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 5px;
+        }
+        nav ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 14px;
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 12px;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        nav ul li a:hover:after {
+            width: calc(100% - 24px);
+        }
+        /* Projects Page Hero */
+        .projects-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .projects-hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .projects-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+        .breadcrumb li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .breadcrumb li a:hover {
+            color: var(--secondary-color);
+        }
+        .breadcrumb li:after {
+            content: '/';
+            margin-left: 5px;
+            color: #ccc;
+        }
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+        /* Projects Content */
+        .projects-page {
+            padding: 50px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            padding: 0 15px;
+        }
+        .filter-btn {
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            padding: 6px 12px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        .project-card {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        .project-info {
+            padding: 20px;
+            background-color: white;
+        }
+        .project-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        .project-meta i {
+            color: var(--secondary-color);
+            margin-right: 5px;
+        }
+        .project-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--dark-color);
+            border-radius: 5px;
+            margin: 0 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+            font-weight: 500;
+        }
+        .pagination a.active, .pagination a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 15px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+            color: var(--secondary-color);
+        }
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0;
+            font-size: 14px;
+        }
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        .footer-col p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-left: 8px;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        .footer-social a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+        }
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        /* Responsive Improvements */
+        @media (min-width: 576px) {
+            .projects-hero {
+                height: 350px;
+            }
+            .projects-hero h1 {
+                font-size: 2.5rem;
+            }
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 768px) {
+            .header-container {
+                flex-wrap: nowrap;
+            }
+            .logo {
+                margin-bottom: 0;
+            }
+            nav {
+                width: auto;
+                order: 0;
+                margin-top: 0;
+            }
+            nav ul li a {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+            .projects-hero {
+                height: 400px;
+            }
+            .projects-hero h1 {
+                font-size: 3rem;
+            }
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+966112345678"><i class="fas fa-phone"></i> +966 11 234 5678</a>
+                <a href="mailto:info@almabani.com"><i class="fas fa-envelope"></i> info@almabani.com</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="logo.png" alt="Al-Mabani Contracting Company">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="ar/projects.html">AR</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="projects-hero">
+        <div class="projects-hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Our Projects</h1>
+            <ul class="breadcrumb animate__animated animate__fadeInUp">
+                <li><a href="index.html">Home</a></li>
+                <li>Projects</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Content -->
+    <section class="projects-page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Latest Projects</h2>
+                <p>Browse some of our most prominent projects that reflect our professionalism and extensive experience</p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="industrial">Industrial</button>
+                <button class="filter-btn" data-filter="government">Government</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="residential">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Al-Saada Residential Complex">
+                    </div>
+                    <div class="project-info">
+                        <h3>Al-Saada Residential Complex</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Riyadh</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                            <span><i class="fas fa-home"></i> Residential</span>
+                        </div>
+                        <p>A luxury residential complex consisting of 150 housing units with international specifications, complete facilities and green spaces.</p>
+                        <a href="project-details.html" class="btn">Project Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="commercial">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Global Business Tower">
+                    </div>
+                    <div class="project-info">
+                        <h3>Global Business Tower</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Jeddah</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                            <span><i class="fas fa-briefcase"></i> Commercial</span>
+                        </div>
+                        <p>A fully integrated commercial tower with 35 floors, including luxury offices, conference halls and commercial centers.</p>
+                        <a href="project-details.html" class="btn">Project Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="industrial">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Integrated Factory">
+                    </div>
+                    <div class="project-info">
+                        <h3>Integrated Factory</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Dammam</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2021</span>
+                            <span><i class="fas fa-industry"></i> Industrial</span>
+                        </div>
+                        <p>An integrated factory with an area of 20,000 square meters, equipped with the latest technologies and industrial systems.</p>
+                        <a href="project-details.html" class="btn">Project Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="residential">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Elite Villas">
+                    </div>
+                    <div class="project-info">
+                        <h3>Elite Villas</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Khobar</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2020</span>
+                            <span><i class="fas fa-home"></i> Residential</span>
+                        </div>
+                        <p>A complex of luxury villas consisting of 50 villas with different areas and distinctive architectural designs.</p>
+                        <a href="project-details.html" class="btn">Project Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="commercial">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="World Trade Center">
+                    </div>
+                    <div class="project-info">
+                        <h3>World Trade Center</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Riyadh</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2019</span>
+                            <span><i class="fas fa-shopping-cart"></i> Commercial</span>
+                        </div>
+                        <p>A huge commercial complex with 120 shops, restaurants, entertainment centers and multi-level parking.</p>
+                        <a href="project-details.html" class="btn">Project Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card animate__animated animate__fadeIn" data-category="government">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Specialized Hospital">
+                    </div>
+                    <div class="project-info">
+                        <h3>Specialized Hospital</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Madinah</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2018</span>
+                            <span><i class="fas fa-hospital"></i> Government</span>
+                        </div>
+                        <p>A specialized hospital with a capacity of 200 beds, equipped with the latest medical devices and healthcare technologies.</p>
+                        <a href="project-details.html" class="btn">Project Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Al-Mabani Contracting Company is one of the leading companies in the field of construction and contracting in Saudi Arabia, established in 1995.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="general-contracting.html">General Contracting</a></li>
+                        <li><a href="finishing-works.html">Finishing Works</a></li>
+                        <li><a href="electrical-works.html">Electrical Works</a></li>
+                        <li><a href="low-current.html">Low Current Systems</a></li>
+                        <li><a href="plumbing.html">Electromechanical Works</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive our latest news and offers.</p>
+                    <form>
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Al-Mabani Contracting Company. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        // Enable wow.js for animations
+        new WOW().init();
+        
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Projects Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.classList.add('animate__fadeIn');
+                        }, 50);
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('animate__fadeIn');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
