@@ -214,31 +214,31 @@
             color: var(--primary-color);
         }
         /* إضافة في قسم CSS */
-.english-slogan {
-    color: #e74c3c;
-    font-weight: 700;
-    font-size: 1.5rem;
-    animation: bounceIn 2s infinite alternate;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-    font-style: italic;
-}
+        .english-slogan {
+            color: #e74c3c;
+            font-weight: 700;
+            font-size: 1.5rem;
+            animation: bounceIn 2s infinite alternate;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-style: italic;
+        }
 
-/* تأثير متحرك */
-@keyframes bounceIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px) scale(0.95);
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(0) scale(1.05);
-    }
-    100% {
-        transform: translateY(-10px) scale(1);
-    }
-}
+        /* تأثير متحرك */
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0) scale(1.05);
+            }
+            100% {
+                transform: translateY(-10px) scale(1);
+            }
+        }
         /* ========================================== */
         /* قسم الخدمات المعدل للجوال */
         /* ========================================== */
@@ -845,6 +845,165 @@
                 grid-template-columns: repeat(4, 1fr);
             }
         }
+        
+        /* Chat Widget Styles */
+        .chat-widget-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        #chat-widget-button {
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        #chat-widget-button:hover {
+            transform: scale(1.1);
+        }
+        
+        #chat-box {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            left: 20px;
+            width: 90%;
+            max-width: 340px;
+            height: 70vh;
+            max-height: 520px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            z-index: 1000;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .chat-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-header button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        #chat-content {
+            padding: 10px;
+            height: calc(100% - 130px);
+            overflow-y: auto;
+            font-size: 14px;
+            background: #f9f9f9;
+            direction: rtl;
+        }
+        
+        .quick-questions {
+            padding: 8px;
+            border-top: 1px solid #eee;
+            background: #f0f0f0;
+            direction: rtl;
+        }
+        
+        .quick-questions-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: flex-end;
+        }
+        
+        .quick-btn {
+            background: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        .quick-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .chat-input-container {
+            display: flex;
+            border-top: 1px solid #ddd;
+            background: #fff;
+            direction: rtl;
+        }
+        
+        #chat-input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            text-align: right;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        #send-button {
+            padding: 12px;
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        #send-button:hover {
+            background: var(--secondary-color);
+        }
+        
+        .user-bubble, .bot-bubble {
+            max-width: 75%;
+            padding: 10px 14px;
+            margin: 8px 0;
+            border-radius: 20px;
+            line-height: 1.4;
+            display: inline-block;
+            clear: both;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        .user-bubble {
+            background: #dcf8c6;
+            float: right;
+            text-align: right;
+        }
+        
+        .bot-bubble {
+            background: #ececec;
+            float: left;
+            text-align: left;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -852,7 +1011,7 @@
     <div class="top-bar">
         <div class="container">
             <div class="contact-info">
-                <a href="tel:+966112345678"><i class="fas fa-phone"></i> +966 12 234 5678</a>
+                <a href="tel:+966112345678"><i class="fas fa-phone"></i> +966 11 234 5678</a>
                 <a href="mailto:info@m.com"><i class="fas fa-envelope"></i> info@m.com</a>
             </div>
             <div class="social-icons">
@@ -865,28 +1024,28 @@
     </div>
 
     <!-- الهيدر -->
-<header>
-    <div class="container">
-        <div class="header-container">
-            <div class="logo">
-                <img src="logo.png" alt="شركة هنا العربية للمقاولات">
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <img src="logo.png" alt="شركة هنا العربية للمقاولات">
+                </div>
+                <div class="english-slogan">
+                    <span>we guide you to the top</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index">الرئيسية</a></li>
+                        <li><a href="about">عن الشركة</a></li>
+                        <li><a href="services">خدماتنا</a></li>
+                        <li><a href="projects">المشاريع</a></li>
+                        <li><a href="En/">EN</a></li>
+                        <li><a href="contact">اتصل بنا</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="english-slogan">
-                <span>we guide you to the top</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index">الرئيسية</a></li>
-                    <li><a href="about">عن الشركة</a></li>
-                    <li><a href="services">خدماتنا</a></li>
-                    <li><a href="projects">المشاريع</a></li>
-                    <li><a href="En/index">EN</a></li>
-                    <li><a href="contact">اتصل بنا</a></li>
-                </ul>
-            </nav>
         </div>
-    </div>
-</header>
+    </header>
 
     <!-- خلفية الفيديو -->
     <section class="video-background">
@@ -923,7 +1082,7 @@
                     </div>
                     <div class="service-content">
                         <p>تنفيذ كافة أعمال المقاولات العامة للمباني السكنية والتجارية والصناعية وفق أحدث المواصفات العالمية.</p>
-                        <a href="general-contracting" class="btn service-btn">المزيد</a>
+                        <a href="general-contracting.html" class="btn service-btn">المزيد</a>
                     </div>
                 </div>
                 
@@ -936,7 +1095,7 @@
                     </div>
                     <div class="service-content">
                         <p>تصميم وتنفيذ الشبكات - الكاميرات-أنذار  - أنظمة الصوت - الدش المركزى باستخدام أحدث التقنيات والمعدات.</p>
-                        <a href="#" class="btn service-btn">المزيد</a>
+                        <a href="low-current" class="btn service-btn">المزيد</a>
                     </div>
                 </div>
                 
@@ -949,7 +1108,7 @@
                     </div>
                     <div class="service-content">
                         <p>أعمال التشطيبات الداخلية والخارجية بجودة عالية وتنفيذ دقيق وفق أحدث التصاميم.</p>
-                        <a href="#" class="btn service-btn">المزيد</a>
+                        <a href="finishing-works" class="btn service-btn">المزيد</a>
                     </div>
                 </div>
                 
@@ -962,7 +1121,7 @@
                     </div>
                     <div class="service-content">
                         <p>تنفيذ كافة أعمال التركيبات الكهربائية والصيانة الدورية وفق معايير السلامة العالمية.</p>
-                        <a href="#" class="btn service-btn">المزيد</a>
+                        <a href="electrical-works" class="btn service-btn">المزيد</a>
                     </div>
                 </div>
                 
@@ -975,7 +1134,7 @@
                     </div>
                     <div class="service-content">
                         <p>تصميم وتنفيذ وصيانة الأنظمة الإلكتروميكانيكية مثل الأنظمة الكهربائية والإضاءة والأنظمة الميكانيكية التي تشمل المصاعد ومضخات الحريق وأنظمة توزيع المياه، بهدف ضمان تشغيل مريح وآمن للمرافق..</p>
-                        <a href="#" class="btn service-btn">المزيد</a>
+                        <a href="plumbing" class="btn service-btn">المزيد</a>
                     </div>
                 </div>
                 
@@ -988,7 +1147,7 @@
                     </div>
                     <div class="service-content">
                         <p>تقديم خدمات التصميم المعماري والهندسي والاستشارات الفنية لمشاريع البناء والتشييد.</p>
-                        <a href="#" class="btn service-btn">المزيد</a>
+                        <a href="design-consulting" class="btn service-btn">المزيد</a>
                     </div>
                 </div>
             </div>
@@ -1053,7 +1212,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 30px;">
-                <a href="projects" class="btn">عرض جميع المشاريع</a>
+                <a href="projects.html" class="btn">عرض جميع المشاريع</a>
             </div>
         </div>
     </section>
@@ -1224,7 +1383,7 @@
                         <li><a href="about">عن الشركة</a></li>
                         <li><a href="services">خدماتنا</a></li>
                         <li><a href="projects">المشاريع</a></li>
-                        <li><a href="en/index">EN</a></li>
+                        <li><a href="en/">EN</a></li>
                         <li><a href="contact">اتصل بنا</a></li>
                     </ul>
                 </div>
@@ -1256,6 +1415,39 @@
     <!-- زر العودة للأعلى -->
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Chat Widget -->
+<div class="chat-widget-container">
+    <button id="chat-widget-button" onclick="toggleChat()" style="background: transparent; border: none; cursor: pointer; padding: 0;">
+    <img src="21.png" alt="Gulf Avatar" style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+</button>
+
+    <div id="chat-box">
+        <div class="chat-header" style="background: linear-gradient(90deg, #006c35, #cfa349); display: flex; align-items: center; justify-content: space-between; padding: 10px; color: white; font-weight: bold;">
+            <div style="display: flex; align-items: center;">
+                <img src="https://i.ibb.co/zV9n2jw/gulf-avatar.png" alt="Gulf Avatar" style="width: 32px; height: 32px; border-radius: 50%; margin-left: 8px;">
+                <span>مساعدك الخليجي</span>
+            </div>
+            <button onclick="toggleChat()" style="background: transparent; border: none; color: white; font-size: 20px; cursor: pointer;">✖</button>
+        </div>
+        <div id="chat-content">
+            <div class="bot-bubble">هلا والله! 👋 معاك سعيد مساعدك  من شركة هنا العربية للمقاولات، ازاى أقدر أساعدك ؟</div>
+        </div>
+
+            <div class="quick-questions">
+                <div class="quick-questions-buttons">
+                    <button class="quick-btn" onclick="quickSend('ما هي خدماتكم؟')">خدماتكم؟</button>
+                    <button class="quick-btn" onclick="quickSend('كيف أتواصل معكم؟')">التواصل</button>
+                    <button class="quick-btn" onclick="quickSend('أين موقعكم؟')">الموقع</button>
+                    <button class="quick-btn" onclick="quickSend('ما هي مشاريعكم الأخيرة؟')">المشاريع</button>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input id="chat-input" type="text" placeholder="اكتب رسالتك..." onkeypress="checkEnter(event)">
+                <button id="send-button" onclick="sendMessage()">إرسال</button>
+            </div>
+        </div>
     </div>
 
     <!-- JavaScript -->
@@ -1345,6 +1537,106 @@
                     video.controls = true;
                 });
             }
+        });
+
+        // Chat Widget Functions
+        function toggleChat() {
+            const chat = document.getElementById('chat-box');
+            chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'block' : 'none';
+        }
+
+        function sendMessage(message = null) {
+            const input = document.getElementById('chat-input');
+            const chatContent = document.getElementById('chat-content');
+            
+            const userMessage = message || input.value.trim();
+            if (userMessage !== '') {
+                // إضافة رسالة المستخدم
+                chatContent.innerHTML += `
+                    <div class="user-bubble" style="direction: rtl;">
+                        ${userMessage}
+                    </div>
+                `;
+                
+                // إضافة رسالة البوت بعد تأخير بسيط
+                setTimeout(() => {
+                    const response = getBotResponse(userMessage.toLowerCase());
+                    chatContent.innerHTML += `
+                        <div class="bot-bubble" style="direction: rtl;">
+                            ${response}
+                        </div>
+                    `;
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                }, 600);
+                
+                if (!message) input.value = '';
+                chatContent.scrollTop = chatContent.scrollHeight;
+            }
+        }
+
+        function quickSend(text) {
+            document.getElementById('chat-input').value = text;
+            sendMessage(text);
+        }
+
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function getBotResponse(message) {
+            if (message.includes("خدمة") || message.includes("خدمات")) {
+                return `نقدم مجموعة متكاملة من خدمات المقاولات والإنشاءات:<br>
+                - المقاولات العامة<br>
+                - أعمال التيار الخفيف<br>
+                - التشطيبات الداخلية<br>
+                - الأعمال الكهربائية<br>
+                - أعمال الإلكتروميكانيكية<br>
+                - التصميم والاستشارات`;
+                
+            } else if (message.includes("تواصل") || message.includes("اتصل") || message.includes("رقم")) {
+                return `📞 للتواصل معنا:<br>
+                الهاتف: +966534039858<br>
+                البريد الإلكتروني: info@m.com<br>
+                العنوان: مكة المكرمة، المملكة العربية السعودية`;
+                
+            } else if (message.includes("عنوان") || message.includes("موقع") || message.includes("الموقع")) {
+                return `📍 عنواننا:<br>
+                مكة المكرمة، المملكة العربية السعودية<br>
+                <a href="https://goo.gl/maps/..." target="_blank" style="color: var(--primary-color);">عرض على الخريطة</a>`;
+                
+            } else if (message.includes("مشروع") || message.includes("مشاريع")) {
+                return `🏗️ يمكنك الاطلاع على مشاريعنا من خلال:<br>
+                <a href="projects" style="color: var(--primary-color);">صفحة المشاريع</a><br>
+                لدينا العديد من المشاريع السكنية والتجارية والصناعية`;
+                
+            } else if (message.includes("سعر") || message.includes("تكلفة") || message.includes("ثمن")) {
+                return `💲 الأسعار تختلف حسب طبيعة المشروع والمساحة.<br>
+                ننصحك بطلب <a href="contact" style="color: var(--primary-color);">استشارة مجانية</a> وسنقدم لك عرضاً مفصلاً`;
+                
+            } else {
+                return `لم أفهم سؤالك، جرب أحد هذه الخيارات:<br>
+                - ما هي خدماتكم؟<br>
+                - كيف أتواصل معكم؟<br>
+                - أين موقعكم؟<br>
+                - ما هي مشاريعكم الأخيرة؟`;
+            }
+        }
+
+        // رسالة ترحيبية عند تحميل الصفحة
+        window.addEventListener("load", function() {
+            setTimeout(() => {
+                const chatContent = document.getElementById("chat-content");
+                if (chatContent) {
+                    chatContent.innerHTML += `
+                        <div class="bot-bubble" style="direction: rtl;">
+                            👋 مرحباً بك في شركة هنا العربية! اضغط على زر 💬 لبدء الدردشة.
+                        </div>
+                    `;
+                }
+            }, 3000);
         });
     </script>
 </body>
