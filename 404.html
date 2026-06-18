@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة غير موجودة | فندق ريان الجوار</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #0f3243; /* نفس لون خلفية موقعك الداكن */
+            color: #F5F2EB;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .error-container {
+            max-width: 500px;
+            background: #133F54;
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid #C9A87C;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .error-icon {
+            font-size: 4rem;
+            color: #C9A87C; /* اللون الذهبي الخاص بهوية الفندق */
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #D7CCBC;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .countdown {
+            font-weight: bold;
+            color: #C9A87C;
+        }
+        .btn-home {
+            background: #C9A87C;
+            color: #0f3243;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-home:hover {
+            background: #FFFFFF;
+            transform: translateY(-3px);
+        }
+    </style>
+    
+    <!-- سكربت التوجيه التلقائي بعد 3 ثوانٍ -->
+    <script>
+        let timeLeft = 3; 
+        function startCountdown() {
+            const timerElement = document.getElementById('timer');
+            const interval = setInterval(() => {
+                timeLeft--;
+                if(timerElement) timerElement.innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    // هنا نكتب اسم ملف الصفحة الرئيسية للتحويل إليه
+                    window.location.href = "index (3).html"; 
+                }
+            }, 1000);
+        }
+        window.onload = startCountdown;
+    </script>
+</head>
+<body>
+
+<div class="error-container">
+    <div class="error-icon"><i class="fas fa-excovered fa-compass"></i></div>
+    <h1>عذرًا، الصفحة غير موجودة!</h1>
+    <p>يبدو أنك كتبت اسم الملف بشكل خاطئ أو أن الصفحة تم نقلها.</p>
+    <p>سيتم تحويلك تلقائيًا إلى الصفحة الرئيسية خلال <span id="timer" class="countdown">3</span> ثوانٍ...</p>
+    <a href="index (3).html" class="btn-home"><i class="fas fa-home"></i> العودة للرئيسية فورًا</a>
+</div>
+
+</body>
+</html>
